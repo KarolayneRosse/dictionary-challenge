@@ -1,0 +1,12 @@
+.card{
+  width: fit-content;
+  padding: 10px;
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.content{
+  display: flex;
+}
