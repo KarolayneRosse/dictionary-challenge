@@ -1,27 +1,33 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.searchbar{
+  --background: none;
+  --box-shadow: none;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.background{
+  --background: #ccc;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.div-settings{
+  background-color: white;
+  border-radius: 12px;
 }
 
-#container a {
-  text-decoration: none;
+.card-settings{
+  width: fit-content;
+}
+
+.category-img{
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+}
+
+.g-display{
+  display: grid;
+  padding-left: 10px;
+}
+
+.categories{
+  display: flex;
+  overflow: scroll;
 }

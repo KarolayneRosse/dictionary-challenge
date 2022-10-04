@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="content">
+    <ion-card class="card">
+      <ion-card-header>Faça o seu login!</ion-card-header>
+      <ion-card-content>
+        <div>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]="email" placeholder="example@example.com"></ion-input>
+          <span *ngIf="errors.emailError" class="span-error">Email inválido</span>
+        </div>
+        <div>
+          <ion-label position="stacked">Senha</ion-label>
+          <ion-row class="align-center">
+            <ion-input [(ngModel)]="password" [type]="changeInputType ? 'text' : 'password'"></ion-input>
+            <ion-icon class="icon-settings" (click)="changeInputType = !changeInputType" [name]="changeInputType ? 'eye' : 'eye-off'"></ion-icon>
+          </ion-row>
+          <span *ngIf="errors.passwordError" class="span-error">Senha incorreta</span>
+        </div>
+      </ion-card-content>
+      <ion-button expand="block">Entrar</ion-button>
+    </ion-card>
+  </div>
+</ion-content>

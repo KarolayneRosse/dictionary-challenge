@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<div class="ion-page" id="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="pushSettingsPage()">
+          <ion-icon name="settings"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-searchbar class="searchbar" placeholder="Pesquise um produto"></ion-searchbar>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content class="ion-padding background">
+    <div class="div-settings">
+      <div class="categories p-5">
+        <div class="g-display" *ngFor="let category of categoriesMock">
+          <img class="category-img" [src]="category.image" alt="">
+          <span class="f-12">{{ category.name }}</span>
+        </div>
+      </div>
+      <hr>
+      <div class="products">
+        <div>
+          <ion-card class="card-settings">
+            <ion-card-header>
+              <img src="https://picsum.photos/200/300" alt="">
+            </ion-card-header>
+            <p>Nome do produto</p>
+          </ion-card>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</div>
