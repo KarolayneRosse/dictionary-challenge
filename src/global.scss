@@ -38,4 +38,12 @@
   --height: 100%;
 }
 
+.left-modal{
+  --width: 70%;
+  --height: 100%;
+  display: flex !important;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
 

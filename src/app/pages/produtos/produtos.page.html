@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>produtos</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="header">
+    <ion-button class="btn-back" fill="clear" mode="ios" size="small" (click)="dismissModal()">
+      <ion-icon name="chevron-back"></ion-icon>
+      Voltar
+    </ion-button>
+    <h2>Produtos</h2>
+  </div>
 
+  <div class="content">
+    <ion-button color="primary" fill="solid" mode="ios" size="small" (click)="openEditModal()">
+      Criar produto
+    </ion-button>
+    <ion-card>
+      <table class="table-set">
+        <tr>
+          <th>Cód.</th>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Favorito</th>
+        </tr>
+        <tr class="line-set">
+          <td>2565</td>
+          <td>Batata frita</td>
+          <td>Porções</td>
+          <td>R$ 20,00</td>
+          <td>
+            <ion-icon name="heart"></ion-icon>
+          </td>
+        </tr>
+      </table>
+    </ion-card>
+  </div>
 </ion-content>
