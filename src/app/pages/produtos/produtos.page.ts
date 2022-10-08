@@ -23,7 +23,10 @@ export class ProdutosPage implements OnInit {
   async openEditModal(){
     let modal = await this.modalController.create({
       component: EditarProdutoPage,
-      cssClass: 'left-modal'
+      cssClass: 'left-modal',
+      componentProps: {
+        edit: false
+      }
     })
 
     await modal.present();

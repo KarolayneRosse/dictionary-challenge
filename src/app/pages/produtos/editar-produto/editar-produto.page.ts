@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -7,6 +7,11 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./editar-produto.page.scss'],
 })
 export class EditarProdutoPage implements OnInit {
+  @Input() edit: boolean;
+
+  productForm = {
+    name: '',
+  }
 
   constructor(
     private modalController: ModalController

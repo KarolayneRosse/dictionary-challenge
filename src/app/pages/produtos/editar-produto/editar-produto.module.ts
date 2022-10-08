@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { EditarProdutoPageRoutingModule } from './editar-produto-routing.module';
 
 import { EditarProdutoPage } from './editar-produto.page';
-
 @NgModule({
   imports: [
     CommonModule,
