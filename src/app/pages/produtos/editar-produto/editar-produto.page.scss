@@ -15,7 +15,12 @@
   padding: 0px !important;
 }
 
-.div-col{
+.div-col {
   width: 100%;
 }
 
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 3px 7px;
+}

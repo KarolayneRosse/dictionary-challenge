@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { ToastService } from 'src/app/utils/toast.service';
+import { ProdutoService } from '../produto.service';
 
 @Component({
   selector: 'app-editar-produto',
@@ -11,10 +13,13 @@ export class EditarProdutoPage implements OnInit {
 
   productForm = {
     name: '',
+    price: 0
   }
 
   constructor(
-    private modalController: ModalController
+    private modalController: ModalController,
+    private produtoService: ProdutoService,
+    private toastService: ToastService
   ) { }
 
   ngOnInit() {
@@ -22,6 +27,15 @@ export class EditarProdutoPage implements OnInit {
 
   dismissModal(){
     this.modalController.dismiss()
+  }
+
+  async submitProduct(){
+    this.produtoService.createProduct(this.productForm).subscribe(()=>{
+      this.toastService.successToast('Porduto criado com sucesso!')
+      this.dismissModal()
+    }, ()=>{
+      this.toastService.errorToast('Erro ao criar o produto :(')
+    })
   }
 
 }
