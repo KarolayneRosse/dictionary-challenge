@@ -17,6 +17,8 @@ export class ToastService {
       duration: 5000,
       color: 'success'
     })
+
+    await toast.present()
   }
 
   async errorToast(msg: string){
@@ -26,5 +28,7 @@ export class ToastService {
       duration: 5000,
       color: 'success'
     })
+
+    await toast.present()
   }
 }

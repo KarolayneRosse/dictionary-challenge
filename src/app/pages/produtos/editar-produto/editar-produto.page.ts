@@ -13,7 +13,8 @@ export class EditarProdutoPage implements OnInit {
 
   productForm = {
     name: '',
-    price: 0
+    price: 0,
+    code: Number
   }
 
   constructor(
@@ -31,7 +32,7 @@ export class EditarProdutoPage implements OnInit {
 
   async submitProduct(){
     this.produtoService.createProduct(this.productForm).subscribe(()=>{
-      this.toastService.successToast('Porduto criado com sucesso!')
+      this.toastService.successToast('Produto criado com sucesso!')
       this.dismissModal()
     }, ()=>{
       this.toastService.errorToast('Erro ao criar o produto :(')

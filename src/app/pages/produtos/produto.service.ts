@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,14 @@ import { HttpClient } from '@angular/common/http'
 export class ProdutoService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   createProduct(data){
-    return this.http.post('http://localhost:3000/product/create',data)
+    return this.http.post(environment.apiUrl + "product/create",data)
+  }
+
+  getProducts(){
+    return this.http.get(environment.apiUrl + 'product')
   }
 }

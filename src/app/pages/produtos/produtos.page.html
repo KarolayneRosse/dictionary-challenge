@@ -20,11 +20,11 @@
           <th>Preço</th>
           <th>Favorito</th>
         </tr>
-        <tr class="line-set">
-          <td>2565</td>
-          <td>Batata frita</td>
-          <td>Porções</td>
-          <td>R$ 20,00</td>
+        <tr class="line-set" *ngFor="let produto of produtos">
+          <td>{{ produto.code }}</td>
+          <td>{{ produto.name }}</td>
+          <td>N/A</td>
+          <td>{{ produto.price | currency:'BRL' }}</td>
           <td>
             <ion-icon name="heart"></ion-icon>
           </td>

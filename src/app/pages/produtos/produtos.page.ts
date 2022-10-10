@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { EditarProdutoPage } from './editar-produto/editar-produto.page';
+import { ProdutoService } from './produto.service';
 
 @Component({
   selector: 'app-produtos',
@@ -9,11 +10,15 @@ import { EditarProdutoPage } from './editar-produto/editar-produto.page';
 })
 export class ProdutosPage implements OnInit {
 
+  produtos = [];
+
   constructor(
-    private modalController: ModalController
+    private modalController: ModalController,
+    private produtoService: ProdutoService
   ) { }
 
   ngOnInit() {
+    this.getProdutos()
   }
 
   dismissModal(){
@@ -30,6 +35,15 @@ export class ProdutosPage implements OnInit {
     })
 
     await modal.present();
+  }
+
+  getProdutos(){
+    this.produtoService.getProducts().subscribe((res)=>{
+      this.produtos = res[0]
+      console.log(res[0])
+    }, (error)=>{
+      console.log(error)
+    })
   }
 
 }
