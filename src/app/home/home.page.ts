@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import wordList from '../../wordList.json';
+import { HomeService } from './home.service';
+import { ShowWordComponent } from './show-word/show-word.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,43 +12,44 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  categoriesMock = [
-    {
-      image: 'https://picsum.photos/200/300',
-      name: 'Entradas',
-    },
-    {
-      image: 'https://picsum.photos/200/300',
-      name: 'Refrigerantes',
-    },
-    {
-      image: 'https://picsum.photos/200/300',
-      name: 'Sucos',
-    },
-    {
-      image: 'https://picsum.photos/200/300',
-      name: 'Self Service',
-    },
-    {
-      image: 'https://picsum.photos/200/300',
-      name: 'Salgados',
-    },
-    {
-      image: 'https://picsum.photos/200/300',
-      name: 'Doces',
-    },
-    {
-      image: 'https://picsum.photos/200/300',
-      name: 'Massas',
-    },
-  ];
+  holdWords;
+  load = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private homeService: HomeService,
+    private modalCtrl: ModalController
   ) {}
 
-  pushSettingsPage(){
-    this.router.navigate(['/settings']);
+  ngOnInit(){
+    this.holdWords = wordList;
   }
 
+  getWord(word){
+    if (!this.load) {
+      this.load = true;
+
+      this.homeService.getWord(word).subscribe((res)=>{
+        // console.log(res[0])
+        this.openWordModal(res[0], word)
+        this.load = false;
+      }, (error)=>{
+        console.log(error)
+        this.load = false;
+      })
+    }
+  }
+
+  async openWordModal(data, title){
+    let modal = await this.modalCtrl.create({
+      component: ShowWordComponent,
+      cssClass: 'left-modal',
+      componentProps: {
+        data: data,
+        title: title
+      }
+    })
+
+    await modal.present();
+  }
 }

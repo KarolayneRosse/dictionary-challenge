@@ -5,17 +5,13 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService {
+export class HomeService {
 
   constructor(
     private http: HttpClient,
   ) { }
 
-  createProduct(data){
-    return this.http.post(environment.apiUrl + "product/create",data)
-  }
-
-  getProducts(){
-    return this.http.get(environment.apiUrl + 'product')
+  getWord(word){
+    return this.http.get(environment.apiUrl + word)
   }
 }

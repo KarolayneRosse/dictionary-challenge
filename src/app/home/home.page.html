@@ -2,32 +2,28 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="end">
-        <ion-button (click)="pushSettingsPage()">
-          <ion-icon name="settings"></ion-icon>
+        <ion-button mode="ios">
+          History
+        </ion-button>
+        <ion-button mode="ios">
+          Favorites
         </ion-button>
       </ion-buttons>
-      <ion-searchbar class="searchbar" placeholder="Pesquise um produto"></ion-searchbar>
+      <ion-title>My dictionary</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding background">
-    <div class="div-settings">
-      <div class="categories p-5">
-        <div class="g-display" *ngFor="let category of categoriesMock">
-          <img class="category-img" [src]="category.image" alt="">
-          <span class="f-12">{{ category.name }}</span>
-        </div>
-      </div>
-      <hr>
-      <div class="products">
-        <div>
-          <ion-card class="card-settings">
-            <ion-card-header>
-              <img src="https://picsum.photos/200/300" alt="">
-            </ion-card-header>
-            <p>Nome do produto</p>
-          </ion-card>
-        </div>
-      </div>
-    </div>
+    <ion-card>
+      <ion-row>
+        <ion-col>Word</ion-col>
+        <ion-col>Favorite</ion-col>
+      </ion-row>
+      <ion-row class="line-set" *ngFor="let word of holdWords">
+        <ion-col (click)="getWord(word)">{{ word }}</ion-col>
+        <ion-col>
+          <ion-icon name="heart"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card>
   </ion-content>
 </div>

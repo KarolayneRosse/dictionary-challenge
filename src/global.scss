@@ -47,4 +47,11 @@
   --backdrop-opacity: .4 !important;
 }
 
+@media (max-width: 900px), handheld and (orientation: portrait) {
+  .left-modal{
+    --width: 100%;
+    --height: 100%;
+  }
+}
+
 

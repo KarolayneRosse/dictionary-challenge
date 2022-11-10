@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        x
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-transform: capitalize;">{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-card class="card-set">
+      <h4>{{ data.word }}</h4>
+      <p>{{ data.phonetic }}</p>
+    </ion-card>
+    <audio controls>
+      <source [src]="data.phonetics[0].audio ? data.phonetics[0].audio :
+        data.phonetics[1].audio ? data.phonetics[1].audio : data.phonetics[2].audio"
+        type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  <div>
+    <div *ngFor="let meaning of data.meanings">
+      <span>{{ meaning.partOfSpeech }}</span>
+      <ul>
+        <li *ngFor="let definition of meaning.definitions">{{ definition.definition }}</li>
+      </ul>
+      <div *ngIf="meaning.synonyms.length > 0">
+        <p>Synonyms:</p>
+        <ul>
+          <li *ngFor="let synonym of meaning.synonyms">{{ synonym }}</li>
+        </ul>
+      </div>
+      <div *ngIf="meaning.antonyms.length > 0">
+        <p>Antonyms:</p>
+        <ul>
+          <li *ngFor="let antonym of meaning.antonyms">{{ antonym }}</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+</ion-content>

@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/'
+  apiUrl: 'https://api.dictionaryapi.dev/api/v2/entries/en/',
+  firebase: {
+    apiKey: "AIzaSyCG4oFtE8VvFdYCvASNfjB2zOy8MTZHErQ",
+    authDomain: "dictionary-challenge-e7b58.firebaseapp.com",
+    projectId: "dictionary-challenge-e7b58",
+    storageBucket: "dictionary-challenge-e7b58.appspot.com",
+    messagingSenderId: "1066008195600",
+    appId: "1:1066008195600:web:0dd826b74eea0aef1f1095",
+    measurementId: "G-S8ZHHN4DE1"
+  }
 };
 
 /*
