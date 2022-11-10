@@ -1,0 +1,28 @@
+h2 {
+  color: black;
+  margin-top: 0px;
+}
+
+.header {
+  padding: 15px;
+}
+
+.btn-back {
+  --padding-start: 0px
+}
+
+.table-set {
+  width: 100%;
+  color: black;
+  border-collapse: inherit !important;
+  border-spacing: 5px;
+}
+
+.line-set {
+  text-align: center;
+
+  &:hover{
+    background-color: #CCC;
+    cursor: pointer;
+  }
+}

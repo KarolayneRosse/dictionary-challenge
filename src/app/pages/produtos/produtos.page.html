@@ -1,0 +1,53 @@
+<ion-content>
+  <div class="header">
+    <ion-button class="btn-back" fill="clear" mode="ios" size="small" (click)="dismissModal()">
+      <ion-icon name="chevron-back"></ion-icon>
+      Voltar
+    </ion-button>
+    <h2>Produtos</h2>
+  </div>
+
+  <div class="content">
+    <ion-button color="primary" fill="solid" mode="ios" size="small" (click)="openEditModal()">
+      Criar produto
+    </ion-button>
+    <ion-card>
+      <ion-row>
+        <ion-col>Cód.</ion-col>
+        <ion-col>Nome</ion-col>
+        <ion-col>Categoria</ion-col>
+        <ion-col>Preço</ion-col>
+        <ion-col>Favorito</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let produto of produtos">
+        <ion-item>
+          <ion-col>{{ produto.code }}</ion-col>
+          <ion-col>{{ produto.name }}</ion-col>
+          <ion-col>N/A</ion-col>
+          <ion-col>{{ produto.price | currency:'BRL' }}</ion-col>
+          <ion-col>
+            <ion-icon name="heart"></ion-icon>
+          </ion-col>
+        </ion-item>
+      </ion-row>
+      <!-- <table class="table-set">
+        <tr>
+          <th>Cód.</th>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Favorito</th>
+        </tr>
+        <tr class="line-set" *ngFor="let produto of produtos">
+          <td>{{ produto.code }}</td>
+          <td>{{ produto.name }}</td>
+          <td>N/A</td>
+          <td>{{ produto.price | currency:'BRL' }}</td>
+          <td>
+            <ion-icon name="heart"></ion-icon>
+          </td>
+        </tr>
+      </table> -->
+    </ion-card>
+  </div>
+</ion-content>
