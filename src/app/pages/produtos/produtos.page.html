@@ -12,7 +12,25 @@
       Criar produto
     </ion-button>
     <ion-card>
-      <table class="table-set">
+      <ion-row>
+        <ion-col>Cód.</ion-col>
+        <ion-col>Nome</ion-col>
+        <ion-col>Categoria</ion-col>
+        <ion-col>Preço</ion-col>
+        <ion-col>Favorito</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let produto of produtos">
+        <ion-item>
+          <ion-col>{{ produto.code }}</ion-col>
+          <ion-col>{{ produto.name }}</ion-col>
+          <ion-col>N/A</ion-col>
+          <ion-col>{{ produto.price | currency:'BRL' }}</ion-col>
+          <ion-col>
+            <ion-icon name="heart"></ion-icon>
+          </ion-col>
+        </ion-item>
+      </ion-row>
+      <!-- <table class="table-set">
         <tr>
           <th>Cód.</th>
           <th>Nome</th>
@@ -29,7 +47,7 @@
             <ion-icon name="heart"></ion-icon>
           </td>
         </tr>
-      </table>
+      </table> -->
     </ion-card>
   </div>
 </ion-content>
