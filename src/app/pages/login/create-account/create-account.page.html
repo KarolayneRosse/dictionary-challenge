@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>create-account</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <div class="content">
+    <ion-card class="card">
+      <ion-card-header>Faça o seu cadastro!</ion-card-header>
+      <ion-card-content>
+        <div>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]="email" placeholder="example@example.com"></ion-input>
+          <span *ngIf="errors.emailError" class="span-error">Email inválido</span>
+        </div>
+        <div>
+          <ion-label position="stacked">Senha</ion-label>
+          <ion-row class="align-center">
+            <ion-input [(ngModel)]="password" [type]="changeInputType ? 'text' : 'password'"></ion-input>
+            <ion-icon class="icon-settings" (click)="changeInputType = !changeInputType" [name]="changeInputType ? 'eye' : 'eye-off'"></ion-icon>
+          </ion-row>
+          <span *ngIf="errors.passwordError" class="span-error">As senhas não coincidem.</span>
+        </div>
+        <div>
+          <ion-label position="stacked">Confirmar senha</ion-label>
+          <ion-row class="align-center">
+            <ion-input [(ngModel)]="confirmPassword" [type]="changeInputType ? 'text' : 'password'"></ion-input>
+          </ion-row>
+          <span *ngIf="errors.passwordError" class="span-error">As senhas não coincidem.</span>
+        </div>
+      </ion-card-content>
+      <a href="/login">Have an account? Go to Login!</a>
+      <ion-button (click)="createAccount()" expand="block">Registrar</ion-button>
+    </ion-card>
+  </div>
 </ion-content>

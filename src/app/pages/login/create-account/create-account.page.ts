@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create-account',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAccountPage implements OnInit {
 
-  constructor() { }
+  email: string;
+  password: string;
+  confirmPassword: string;
+  changeInputType = false;
+
+  errors = {
+    passwordError: false,
+    emailError: false
+  };
+
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
+  }
+
+  createAccount(){
+    if (this.password === this.confirmPassword) {
+      this.auth.register(this.email, this.confirmPassword);
+    }else{
+      this.errors.passwordError = true;
+    }
   }
 
 }

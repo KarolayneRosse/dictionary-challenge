@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,20 @@ export class LoginPage implements OnInit {
     emailError: false
   };
 
-  constructor() { }
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
   }
 
-  submit(){}
+  login(){
+    if (!this.email) {
+      alert("You need to inform an email!")
+      return;
+    }
+
+    this.auth.login(this.email, this.password);
+  }
 
 }

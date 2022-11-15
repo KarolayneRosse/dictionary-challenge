@@ -8,6 +8,9 @@
         <ion-button mode="ios">
           Favorites
         </ion-button>
+        <ion-button mode="ios" (click)="logout()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-button>
       </ion-buttons>
       <ion-title>My dictionary</ion-title>
     </ion-toolbar>
@@ -19,9 +22,9 @@
         <ion-col>Favorite</ion-col>
       </ion-row>
       <ion-row class="line-set" *ngFor="let word of holdWords">
-        <ion-col (click)="getWord(word)">{{ word }}</ion-col>
+        <ion-col (click)="getWord(word)">{{ word.word }}</ion-col>
         <ion-col>
-          <ion-icon name="heart"></ion-icon>
+          <ion-icon [name]="word.favorite ? 'heart' : 'heart-outline'"></ion-icon>
         </ion-col>
       </ion-row>
     </ion-card>

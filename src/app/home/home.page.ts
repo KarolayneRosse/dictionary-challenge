@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import wordList from '../../wordList.json';
+import { AuthService } from '../services/auth.service';
 import { HomeService } from './home.service';
 import { ShowWordComponent } from './show-word/show-word.component';
 
@@ -18,7 +19,8 @@ export class HomePage {
   constructor(
     private router: Router,
     private homeService: HomeService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private auth: AuthService
   ) {}
 
   ngOnInit(){
@@ -51,5 +53,9 @@ export class HomePage {
     })
 
     await modal.present();
+  }
+
+  logout(){
+    this.auth.logout();
   }
 }
