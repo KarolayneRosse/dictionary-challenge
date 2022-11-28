@@ -25,6 +25,9 @@ export class HomePage {
 
   ngOnInit(){
     this.holdWords = wordList;
+    localStorage.setItem(localStorage.getItem('uid'), 'galery')
+    localStorage.setItem(localStorage.getItem('uid'), 'apple')
+    localStorage.setItem(localStorage.getItem('uid'), 'it')
   }
 
   getWord(word){
@@ -57,5 +60,9 @@ export class HomePage {
 
   logout(){
     this.auth.logout();
+  }
+
+  saveFavoriteWord(){
+    
   }
 }

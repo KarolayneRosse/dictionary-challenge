@@ -15,8 +15,11 @@ export class AuthService {
   ) { }
 
   login(email: string, password: string){
-    this.fireAuth.signInWithEmailAndPassword(email, password).then(()=>{
-      localStorage.setItem('token', 'true')
+    this.fireAuth.signInWithEmailAndPassword(email, password).then((res)=>{
+      localStorage.setItem('uid', res.user.uid)
+      if(!localStorage.getItem(res.user.uid)){
+        localStorage.setItem(res.user.uid, '')
+      }
       this.router.navigate(['/home'])
     }, err =>{
       this.toast.errorToast('The email or password was wrong. Try again!')
